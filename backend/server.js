@@ -2,12 +2,16 @@ import express from "express";
 import data from './data';
 
 const app = express();
-
-app.get('api/products', (req,res) =>{
+app.get('/api/products', (req,res) =>{
     res.send(data.products);
 })
 
-app.listen(5000 , (err) =>{
+const hello = (req,res,next) => {
+    console.log("hello from middleware");
+};
+app.use(hello);
+
+app.listen(5000,(err) =>{
     if(err) throw(err)
-    else console.log("server started at http://localhost:5000");
-});
+    console.log("server started at http://localhost:5000")
+})
