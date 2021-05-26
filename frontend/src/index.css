@@ -37,6 +37,7 @@ body{
 .header-links a{
   text-decoration: none;
   color: #ffffff;
+  padding: 1rem;
 }
 .header-links a:hover{
   color: #ff8000;
@@ -147,7 +148,7 @@ a:hover{
   padding: 1rem;
 }
 .details-image{
-  flex: 2 1 60rem;
+  flex: 2 1 30rem;
 
 }
 .details-image img{
