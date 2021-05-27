@@ -58,11 +58,11 @@ function ProductScreen(props) {
                    <li>
                        {product.countInStock>0 ? <p>Status: <span style={{color:"green" , fontWeight:"bold"}}>In Stock</span></p> : <p>Status: <span style={{color:"red" , fontWeight:"bold"}}>Not available</span></p>}
                   </li>
-                                    <li>
-                      Qty: <select value={qty} onChange={(e)=> setQty(e.target.value)}>
-                          {[...Array(product.countInStock).keys()].map(x=>
+                    <li>
+                      Qty: <select value={qty} onChange={(e)=> {setQty(e.target.value)}}>
+                          {[...Array(product.countInStock).keys()].map(x=>(
                             <option key={x+1} value={x+1}>{x+1}</option>
-                          )}
+                          ))}
                       </select>
                   </li>
                   <li>
