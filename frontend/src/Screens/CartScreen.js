@@ -44,7 +44,7 @@ function CartScreen(props){
                     </div>
                     :
                     cartItems.map(item =>
-                        <li>
+                        <li key={item}>
                             <div className="cart-image">
                             <img src={item.image} alt="product" />
                             </div>
@@ -56,13 +56,13 @@ function CartScreen(props){
                                 </div>
                                 <div>
                                     Qty:
-                                    <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
+                                    <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                     </select>
-                                    <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
-                                        Delete
+                                    <button type="button" className="button" className="button-delete" onClick={() => removeFromCartHandler(item.product)} >
+                                        Delete 
                                     </button>
 
                                 </div>
@@ -77,7 +77,7 @@ function CartScreen(props){
         </div>
         <div className="cart-action">
                 <h3>
-                    Subtotal ( {cartItems.reduce((a,c) => a + c.qty, 0)} items)
+                    Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items)
                 :
                 $ {cartItems.reduce((a,c) => a+c.price * c.qty, 0)}
                 </h3>
