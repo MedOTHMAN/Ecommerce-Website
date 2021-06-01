@@ -2,21 +2,23 @@ import express from "express";
 import data from './data';
 import config from "./config.js";
 import mongoose from 'mongoose';
-import userRoute from "./userRoute"
 import dotenv from 'dotenv';
+import router from "./routes/userRoute";
 
 dotenv.config();
 
 const app = express();
 const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(mongodbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
+mongoose.connect('mongodb+srv://ecommerce:hello@cluster0.dsdiy.mongodb.net/ecommerce?retryWrites=true&w=majority'
+    , {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
 }).catch((error) => console.log(error.reason));
 
 
-app.use("/api/users", userRoute);
+app.use("/api/users", router);
 
 app.get('/api/products', (req,res) =>{
     res.send(data.products);

@@ -1,3 +1,3 @@
 export default {
-    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/contactdb',
+    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/ecommerce'
 }
