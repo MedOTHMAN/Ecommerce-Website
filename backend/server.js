@@ -2,12 +2,14 @@ import express from "express";
 import data from './data';
 import config from "./config.js";
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import router from "./routes/userRoute";
 
 dotenv.config();
 
 const app = express();
+app.use(bodyParser.json());
 const mongodbUrl = config.MONGODB_URL;
 mongoose.connect('mongodb+srv://ecommerce:hello@cluster0.dsdiy.mongodb.net/ecommerce?retryWrites=true&w=majority'
     , {
