@@ -36,7 +36,7 @@ function SigninScreen(props) {
             {error && <div>{error}</div>}
           </li>
           <li>
-            <label htmlfor="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -45,7 +45,7 @@ function SigninScreen(props) {
             ></input>
           </li>
           <li>
-            <label htmlfor="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
