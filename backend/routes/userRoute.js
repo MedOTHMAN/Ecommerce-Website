@@ -43,13 +43,12 @@ router.post('/register', async (req,res) => {
 })
 
 router.get("/createadmin", async (req, res) => {
-    await User.deleteMany({});
     try {
         const user = new User({
         name: 'Mohamed',
         email: 'mohamed.n.othman@gmail.com',
         password: '123456',
-        isAdmin: false
+        isAdmin: true
     });
         const newUser = await user.save();
         res.send(newUser);
